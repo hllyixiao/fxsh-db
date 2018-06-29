@@ -54,7 +54,10 @@ public class DataBaseConfiguration {
         dataSource.setUsername(base.getUserName());
         dataSource.setPassword(base.getPassword());
         try {
-            dataSource.setFilters("stat,wall");
+            //'wall'用于防火墙（防止SQL注入）
+            //stat 能够监控统计SQL的执行性能
+            //log4j日志监控应用的数据库访问情况
+            dataSource.setFilters("stat,wall,log4j");
         } catch (SQLException e) {
             e.printStackTrace();
         }

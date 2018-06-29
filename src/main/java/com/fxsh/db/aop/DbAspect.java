@@ -34,7 +34,7 @@ public class DbAspect {
                           final SlaveDb slaveDb) throws Throwable {
         // 切换到slave数据源
         DynamicRoutingDataSource.slave();
-//        joinPoint.proceed();
-//        DynamicRoutingDataSource.clearDB();
+        joinPoint.proceed();
+        DynamicRoutingDataSource.clearDB();
     }
 }
